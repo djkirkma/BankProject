@@ -38,9 +38,6 @@
 													<option value="beta">Checking</option>
 												</select>
 											</div>
-											<div class="col-12">
-												<textarea name="textarea" id="textarea" placeholder="Alpha beta gamma delta" rows="6"></textarea>
-											</div>
 											<!-- Break -->
 											<div class="col-12">
 												<ul class="actions">

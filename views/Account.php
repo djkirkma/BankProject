@@ -24,7 +24,7 @@
 								<header>
 									<h2>Account Information</h2>
 								</header>
-								<p>First Name: <?php  ?></p>
+								<p>First Name: Bob</p>
 								<p>Last Name: Joe</p>
 								<p>Email: BobJoe@gmail.com</p>
 								<p>Balance $0</p>
