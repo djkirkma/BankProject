@@ -11,50 +11,34 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
-		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="../www/assets/css/main.css" />
 	</head>
 	<body class="is-preload">
 
-		<?php require_once("includes/header.php") ?>
-		<?php require_once("includes/nav.php") ?>
+		<?php require_once("../www/includes/header.php") ?>
+		<?php require_once("../www/includes/nav.php") ?>
 
 		<h3>Account Information</h3>
-									<form method="post" action="#">
+									<form method="post" id="theForm" action="../controllers/newEntry.php">
 										<div class="row gtr-uniform">
 											<div class="col-6 col-12-xsmall">
-												<input type="text" name="firstName" id="firstName" value="" placeholder="First Name" />
+												<input type="text" name="FirstName" id="firstName" value="" placeholder="First Name" />
 											</div>
 											<div class="col-6 col-12-xsmall">
-												<input type="text" name="lastName" id="lastName" value="" placeholder="Last Name" />
+												<input type="text" name="LastName" id="lastName" value="" placeholder="Last Name" />
 											</div>
 											<div class="col-6 col-12-xsmall">
-												<input type="email" name="email" id="email" value="" placeholder="Email" />
-											</div>
-											<!-- Break -->
-											<div class="col-12">
-												<select name="category" id="category">
-													<option value="">- Select -</option>
-													<option value="alpha">Savings</option>
-													<option value="beta">Checking</option>
-												</select>
+												<input type="email" name="Email" id="Email" value="" placeholder="Email" />
 											</div>
 											<!-- Break -->
 											<div class="col-12">
 												<ul class="actions">
-													<li><input type="submit" value="Submit" class="primary" /></li>
+													<li><input type="submit" name = "createAccountSubmit" value="Submit" class="primary" /></li>
 													<li><input type="reset" value="Reset" /></li>
 												</ul>
 											</div>
 										</div>
 									</form>
-
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
 
 	</body>
 </html>

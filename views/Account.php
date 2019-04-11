@@ -4,6 +4,19 @@
 	templated.co @templatedco
 	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 -->
+<?php
+
+require_once("../application/database.php");
+$sql = "SELECT * FROM `account` WHERE accountnumber = 1";
+$result = $conn->query($sql);
+while ($obj = $result->fetch_object()) {
+	$FirstName = $obj->FirstName;
+	$LastName = $obj->LastName;
+	$Email = $obj->Email;
+	$Balance = $obj->Balance;
+
+}
+?>
 <html>
 	<head>
 		<title>Account Info</title>
@@ -11,12 +24,12 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
-		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="../www/assets/css/main.css" />
 	</head>
 	<body class="is-preload">
 
-		<?php require_once("includes/header.php") ?>
-		<?php require_once("includes/nav.php") ?>
+		<?php require_once("../www/includes/header.php") ?>
+		<?php require_once("../www/includes/nav.php") ?>
 		<!-- Main -->
 		<section id="main" class="wrapper">
 						<div class="inner">
@@ -24,23 +37,18 @@
 								<header>
 									<h2>Account Information</h2>
 								</header>
-								<p>First Name: Bob</p>
-								<p>Last Name: Joe</p>
-								<p>Email: BobJoe@gmail.com</p>
-								<p>Balance $0</p>
+								<form action="ModifyAccount.php">
+								<p>First Name: <?php  echo $FirstName?></p>
+								<p>Last Name: <?php  echo $LastName?></p>
+								<p>Email: <?php echo $Email ?> </p>
+								<p>Balance:  $<?php echo $Balance ?></p>
+								<button type="submit"> Edit </button>
+								</form>
 							</div>
 						</div>
 					</section>
 
 		
-
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
 
 	</body>
 </html>

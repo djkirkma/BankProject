@@ -11,12 +11,12 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
-		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="../www/assets/css/main.css" />
 	</head>
 	<body class="is-preload">
 
-		<?php require_once("includes/header.php") ?>
-		<?php require_once("includes/nav.php") ?>
+		<?php require_once("../www/includes/header.php") ?>
+		<?php require_once("../www/includes/nav.php") ?>
 
 		<h3>Deposit</h3>
 									<form method="post" action="#">
@@ -36,7 +36,7 @@
 												</select>
 											</div>
 											<div class="col-12">
-												<textarea name="textarea" id="textarea" placeholder="Alpha beta gamma delta" rows="6"></textarea>
+												<textarea name="textarea" id="textarea" placeholder="Deposit Information" rows="3"></textarea>
 											</div>
 											<!-- Break -->
 											<div class="col-12">
@@ -47,14 +47,6 @@
 											</div>
 										</div>
 									</form>
-
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
 
 	</body>
 </html>
