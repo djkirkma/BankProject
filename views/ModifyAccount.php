@@ -34,7 +34,11 @@
 								</form>
 						</div>
 					</section>
-
+					<script src="../www/assets/js/jquery.min.js"></script>
+			<script src="../www/assets/js/browser.min.js"></script>
+			<script src="../www/assets/js/breakpoints.min.js"></script>
+			<script src="../www/assets/js/util.js"></script>
+			<script src="../www/assets/js/main.js"></script>
 		
 
 
