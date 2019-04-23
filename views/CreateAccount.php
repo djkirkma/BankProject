@@ -21,7 +21,7 @@
 												<br>
 												<input type="text" name="LastName" id="lastName" value="" placeholder="Last Name" />
 												<br>
-												<input type="text" name="password" id="password" value="" placeholder="Last Name" />
+												<input type="text" name="password" id="password" value="" placeholder="Password" />
 												<br>
 												<input type="email" name="Email" id="Email" value="" placeholder="Email" />
 											</div>

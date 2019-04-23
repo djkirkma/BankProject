@@ -14,6 +14,30 @@ if(isset($_POST['Balance'])) {
 			$sql = "UPDATE account SET FirstName = '$FirstName' ,LastName = '$LastName',Email = '$Email',Balance = '$Balance' WHERE AccountNumber = $AccountNumber";
 			$result = $conn->query($sql);
 }
+if(isset($_POST["textarea"])) {
+	$AccountNumber = $_POST["AccountNumber"];
+	$DepositAmount = $_POST["DepositAmount"];
+	$username = $_SESSION["loggedin"];
+	
+	$sql = "SELECT balance FROM account WHERE FirstName='$username'";
+	$result2 = $conn->query($sql);
+	while ($obj = $result2->fetch_object()) {
+		if($obj->balance >= $DepositAmount) {
+			$newBal = $obj->balance + $DepositAmount;
+
+			$myBal = $obj->balance - $DepositAmount;
+
+			$sql = "UPDATE account SET Balance = '$newBal' WHERE AccountNumber = $AccountNumber";
+			$result = $conn->query($sql);
+			$sql = "UPDATE account SET Balance = '$myBal' WHERE FirstName = '$username'";
+
+			$result = $conn->query($sql);
+		}
+	
+		header("Location: index.php");
+	}
+
+}
 if(isset($_POST["username"])){
 	
 	

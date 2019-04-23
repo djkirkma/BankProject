@@ -1,8 +1,24 @@
+<?php
+require_once("../exceptions/LoginException.php");
+require_once("../application/database.php");
+try{
+	if (session_id() == "")
+  	session_start();
+	$name = $_SESSION["loggedin"];
+	if(!isset($name)) {
+		throw new LoginException();
+	}
+}
+catch (LoginException $e) {
+	$message = $e->getDetails();
+	header("Location: ../views/error.php?message=$message");
+}
+?>
 <!DOCTYPE HTML>
 <html>
 
 <head>
-	<title>Generic Page - Industrious by TEMPLATED</title>
+	<title>Transfer</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<meta name="description" content="" />
@@ -16,24 +32,11 @@
 	<?php require_once("../www/includes/nav.php") ?>
 
 
-	<form method="post" action="#">
-		<div class="col-12">
-			<h2> Sending </h2>
-		</div>
-		<div class="row gtr-uniform">
-			<div class="col-6 col-12-xsmall">
-				<input type="text" name="AccountNumber" id="AccountNumber" value="" placeholder="AccountNumber" />
-			</div>
-			<div class="col-12">
-				<select name="category" id="category">
-					<option value="">- Select -</option>
-					<option value="alpha">Savings</option>
-					<option value="beta">Checking</option>
-				</select>
-			</div>
+	<form method="post" action="Success.php">
+		
 			<!-- Break -->
 			<div class="col-12">
-				<h2> Reciving </h2>
+				<h2> Account reciving payment </h2>
 			</div>
 		</div>
 
@@ -45,13 +48,6 @@
 			</div>
 			<div class="col-6 col-12-xsmall">
 				<input type="text" name="DepositAmount" id="DepositAmount" value="" placeholder="Deposit Amount" />
-			</div>
-			<div class="col-12">
-				<select name="category" id="category">
-					<option value="">- Select -</option>
-					<option value="alpha">Savings</option>
-					<option value="beta">Checking</option>
-				</select>
 			</div>
 			<div class="col-12">
 				<textarea name="textarea" id="textarea" placeholder="Notes about transfer" rows="3"></textarea>
