@@ -1,6 +1,8 @@
 <?php
 session_start();
-require_once("../application/database.php");
+require_once("../exceptions/DataMissingException.php");
+require_once("../exceptions/DateException.php");
+require_once("../exceptions/EmailException.php");
 if(isset($_POST['Balance'])) {
 	$AccountNumber = $_POST['AccountNumber'];
 	$FirstName = $_POST['FirstName'];
@@ -15,6 +17,10 @@ if(isset($_POST["username"])){
 	
 	$username = $_POST['username'];
 	$password = $_POST['password'];
+	try {
+	if($username == "" || $password == "") {
+		throw new DataMissingException();
+	}
 	$sql = "select password from account where firstName='$username'";
 	
 	$result = $conn->query($sql);
@@ -26,8 +32,13 @@ if(isset($_POST["username"])){
 			} 
 		}
 	
+		header("Location: index.php");
 	}
-	header("Location: index.php");
+}
+catch (DataMissingException $e){
+	$message = $e->getDetails();
+	header("Location: error.php?message=$message");
+}
 } 
 ?>
 <!DOCTYPE HTML>

@@ -1,17 +1,7 @@
 <!DOCTYPE HTML>
 <?php
-
-
-require_once("../application/database.php");
-$sql = "SELECT * FROM `account` WHERE accountnumber = 1";
-$result = $conn->query($sql);
-while ($obj = $result->fetch_object()) {
-	$FirstName = $obj->FirstName;
-	$LastName = $obj->LastName;
-	$Email = $obj->Email;
-	$Balance = $obj->Balance;
-
-}
+$message = "Error message not found";
+$message = $_GET["message"];
 ?>
 <html>
 	<head>
@@ -30,16 +20,7 @@ while ($obj = $result->fetch_object()) {
 		<section id="main" class="wrapper">
 						<div class="inner">
 							<div class="content">
-								<header>
-									<h2>Account Information</h2>
-								</header>
-								<form action="ModifyAccount.php">
-								<p>First Name: <?php  echo $FirstName?></p>
-								<p>Last Name: <?php  echo $LastName?></p>
-								<p>Email: <?php echo $Email ?> </p>
-								<p>Balance:  $<?php echo $Balance ?></p>
-								<button type="submit"> Edit </button>
-								</form>
+								<?php echo "<h2> $message </h2>" ?>
 							</div>
 						</div>
 					</section>
