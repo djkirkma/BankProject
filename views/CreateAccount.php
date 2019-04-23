@@ -23,6 +23,9 @@
 												<input type="text" name="LastName" id="lastName" value="" placeholder="Last Name" />
 											</div>
 											<div class="col-6 col-12-xsmall">
+												<input type="text" name="password" id="password" value="" placeholder="Password" />
+											</div>
+											<div class="col-6 col-12-xsmall">
 												<input type="email" name="Email" id="Email" value="" placeholder="Email" />
 											</div>
 											<!-- Break -->

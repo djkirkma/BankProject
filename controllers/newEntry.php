@@ -8,11 +8,12 @@ if(isset($_POST["createAccountSubmit"])) {
     $FirstName = $_POST["FirstName"];
     $LastName = $_POST["LastName"];
     $Email = $_POST["Email"];
-    if ($FirstName == "" || $LastName == "" || $Email == "") {
+    $password = $_POST['password'];
+    if ($FirstName == "" || $LastName == "" || $Email == "" || $password == "") {
         throw new DataMissingException();
     }
 
-    $sql = "Insert INTO account (FirstName, LastName, Email) VALUES ('"  . $FirstName . "','"  . $LastName . "','"  . $Email . "')";
+    $sql = "Insert INTO account (FirstName, LastName, password, Email) VALUES ('"  . $FirstName . "','"  . $LastName . "','" . $password ."','"  . $Email . "')";
 
     $result = $conn->query($sql);
     
