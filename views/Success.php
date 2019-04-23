@@ -1,9 +1,36 @@
+<?php
+session_start();
+require_once("../application/database.php");
+if(isset($_POST['Balance'])) {
+	$AccountNumber = $_POST['AccountNumber'];
+	$FirstName = $_POST['FirstName'];
+	$LastName = $_POST['LastName'];
+	$Email = $_POST['Email'];
+	$Balance = $_POST['Balance'];
+			$sql = "UPDATE account SET FirstName = '$FirstName' ,LastName = '$LastName',Email = '$Email',Balance = '$Balance' WHERE AccountNumber = $AccountNumber";
+			$result = $conn->query($sql);
+}
+if(isset($_POST["username"])){
+	
+	
+	$username = $_POST['username'];
+	$password = $_POST['password'];
+	$sql = "select password from account where firstName='$username'";
+	
+	$result = $conn->query($sql);
+	while ($obj = $result->fetch_object()) {
+		if($obj->password == $password) {
+			$_SESSION["loggedin"] = "True";
+			if($username == "Doug") {
+				$_SESSION["admin"] = "true";
+			} 
+		}
+	
+	}
+	header("Location: index.php");
+} 
+?>
 <!DOCTYPE HTML>
-<!--
-	Industrious by TEMPLATED
-	templated.co @templatedco
-	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
--->
 <html>
 	<head>
 		<title>Deposit</title>
@@ -21,7 +48,7 @@
 		<section id="main" class="wrapper">
 				<div class="inner">
 					
-					<h1>Successfully created a new account!</h1>
+					<h2>Action Completed Successfully</h2>
 				</div>
 			</section>
 

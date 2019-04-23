@@ -18,16 +18,31 @@
 	<section id="main" class="wrapper">
 		<div class="inner">
 
-			<h1>Admin page</h1>
-			<div id="searchbar">
-					<form method="get" action="E.php">
-						<input name="query-terms" id="searchBoxObj" placeholder="Search Accounts" autocomplete="off" onkeyup="handleKeyUp(event)">
-					</form>
-					<div id="suggestionDiv"></div>
-				</div>
+			<h1>Edit page</h1>
 			<?php
-			$numRows = 0;
 			require_once("../application/database.php");
+			$sql = "SELECT * FROM account WHERE AccountNumber = $ID";
+			$result = $conn->query($sql);
+			echo "<table> <tr>
+					<td> Account Number</td>
+					<td> First Name</td>
+					<td> Last Name</td>
+					<td> Email</td>
+					<td> Balance</td>
+					<td> </td>
+					</tr>";
+			while ($row = $result->fetch_assoc()) {
+				echo "<tr> <form action='Success.php' method='post'>";
+				echo "<input type = 'hidden' name ='AccountNumber' value=" . $row['AccountNumber'] . " >";
+				echo "<td>" . $row['AccountNumber'] . "</td>";
+				echo "<td> <input name ='FirstName' value=" . $row['FirstName'] . "></td>";
+				echo "<td> <input name ='LastName' value=" . $row['LastName'] . "></td>";
+				echo "<td> <input name ='Email' value=" . $row['Email'] . "></td>";
+				echo "<td> <input name ='Balance' value=" . $row['Balance'] . "></td>";
+				echo "<td> <button type='submit'> Submit </button> </form> </td>";
+				echo " </tr>";
+			}
+			echo "</table>";
 
 			?>
 		</div>

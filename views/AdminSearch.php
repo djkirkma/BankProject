@@ -15,9 +15,4 @@ if(isset($_GET["query-terms"])) {
     }
 }
 
-if(isset($_GET["myID"])) {
-    $ID = $_GET["myID"];
-    include("edit.php");
-}
-
 ?>
