@@ -1,9 +1,21 @@
 <!DOCTYPE HTML>
 <?php
 
-
+require_once("../exceptions/LoginException.php");
 require_once("../application/database.php");
-$sql = "SELECT * FROM `account` WHERE accountnumber = 1";
+try{
+	if (session_id() == "")
+  	session_start();
+	$name = $_SESSION["loggedin"];
+	if(!isset($name)) {
+		throw new LoginException();
+	}
+}
+catch (LoginException $e) {
+	$message = $e->getDetails();
+	header("Location: ../views/error.php?message=$message");
+}
+$sql = "SELECT * FROM `account` WHERE FirstName = '$name'";
 $result = $conn->query($sql);
 while ($obj = $result->fetch_object()) {
 	$FirstName = $obj->FirstName;

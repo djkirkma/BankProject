@@ -1,5 +1,7 @@
 <?php
 session_start();
+
+require_once("../application/database.php");
 require_once("../exceptions/DataMissingException.php");
 require_once("../exceptions/DateException.php");
 require_once("../exceptions/EmailException.php");
@@ -15,7 +17,7 @@ if(isset($_POST['Balance'])) {
 if(isset($_POST["username"])){
 	
 	
-	$username = $_POST['username'];
+	$username = $_POST['username'];	
 	$password = $_POST['password'];
 	try {
 	if($username == "" || $password == "") {
@@ -26,7 +28,7 @@ if(isset($_POST["username"])){
 	$result = $conn->query($sql);
 	while ($obj = $result->fetch_object()) {
 		if($obj->password == $password) {
-			$_SESSION["loggedin"] = "True";
+			$_SESSION["loggedin"] = $username;
 			if($username == "Doug") {
 				$_SESSION["admin"] = "true";
 			} 

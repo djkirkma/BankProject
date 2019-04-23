@@ -1,4 +1,5 @@
 <?php
+if (session_id() == "")
 session_start();
 ?>
 <!-- Header -->
@@ -7,7 +8,7 @@ session_start();
 				<nav>
 				<?php
 					if(isset($_SESSION["loggedin"])) {
-						if($_SESSION["loggedin"] == "True")
+						if($_SESSION["loggedin"] != "" )
 						echo "<a href='Logout.php'>Logout</a>";
 						else 
 						echo "<a href='Login.php'>Login</a>";

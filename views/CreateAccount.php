@@ -18,16 +18,14 @@
 										<div class="row gtr-uniform">
 											<div class="col-6 col-12-xsmall">
 												<input type="text" name="FirstName" id="firstName" value="" placeholder="First Name" />
-											</div>
-											<div class="col-6 col-12-xsmall">
+												<br>
 												<input type="text" name="LastName" id="lastName" value="" placeholder="Last Name" />
-											</div>
-											<div class="col-6 col-12-xsmall">
-												<input type="text" name="password" id="password" value="" placeholder="Password" />
-											</div>
-											<div class="col-6 col-12-xsmall">
+												<br>
+												<input type="text" name="password" id="password" value="" placeholder="Last Name" />
+												<br>
 												<input type="email" name="Email" id="Email" value="" placeholder="Email" />
 											</div>
+											
 											<!-- Break -->
 											<div class="col-12">
 												<ul class="actions">
