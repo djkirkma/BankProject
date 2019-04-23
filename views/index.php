@@ -16,7 +16,9 @@
 	</head>
 	<body class="is-preload">
 
-	<?php require_once("../www/includes/header.php") ?>
+	<?php
+	$_SESSION["admin"] = "true";
+	require_once("../www/includes/header.php") ?>
 
 		<?php require_once("../www/includes/nav.php") ?>
 
