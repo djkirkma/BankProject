@@ -53,7 +53,7 @@ if(isset($_POST["username"])){
 	while ($obj = $result->fetch_object()) {
 		if($obj->password == $password) {
 			$_SESSION["loggedin"] = $username;
-			if($username == "Doug") {
+			if($username == "admin") {
 				$_SESSION["admin"] = "true";
 			} 
 		}
